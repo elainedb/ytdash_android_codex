@@ -12,7 +12,7 @@ Android app with Google Sign-In authentication that displays YouTube videos from
 ./gradlew assembleDebug          # Build debug APK
 ./gradlew assembleRelease        # Build release APK
 ./gradlew testDebugUnitTest      # Run unit tests
-./gradlew test --tests "dev.elainedb.android_claude.utils.StringHelperTest"  # Run single test class
+./gradlew test --tests "{package_name}.utils.StringHelperTest"  # Run single test class
 ./gradlew JacocoDebugCodeCoverage  # Generate coverage report (HTML+XML)
 ./gradlew lint                   # Run Android lint
 ```
@@ -29,7 +29,7 @@ CI builds auto-generate dummy versions of both files.
 
 ## Architecture
 
-Single-module Android app (`dev.elainedb.android_claude`) using Jetpack Compose, targeting SDK 36 / min SDK 29.
+Single-module Android app (`{package_name}`) using Jetpack Compose, targeting SDK 36 / min SDK 29.
 
 **Data flow:** YouTube Data API v3 → Retrofit (`YouTubeApiService`) → `YouTubeRepository` → Room DB cache (`VideoDao`/`VideoEntity`) → `VideoListViewModel` (StateFlow) → Compose UI
 
