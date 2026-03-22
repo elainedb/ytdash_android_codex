@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">YTDash A Codex</string>
+    <string name="login_title">Login with Google</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="logout">Logout</string>
+    <string name="refresh">Refresh</string>
+    <string name="view_map">View Map</string>
+    <string name="filter">Filter</string>
+    <string name="sort">Sort</string>
+    <string name="access_denied">Access denied. Your email is not authorized.</string>
+    <string name="missing_email">Google account did not provide an email address.</string>
+    <string name="sign_in_failed">Google sign-in failed.</string>
+    <string name="retry">Retry</string>
+    <string name="loading_videos">Loading videos…</string>
+    <string name="no_videos_found">No videos found.</string>
+    <string name="video_count_all">Showing %1$d videos</string>
+    <string name="video_count_filtered">Showing %1$d of %2$d videos</string>
+    <string name="all_channels">All Channels</string>
+    <string name="all_countries">All Countries</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="publication_newest">Publication Date (Newest First)</string>
+    <string name="publication_oldest">Publication Date (Oldest First)</string>
+    <string name="recording_newest">Recording Date (Newest First)</string>
+    <string name="recording_oldest">Recording Date (Oldest First)</string>
+    <string name="filter_dialog_title">Filter Videos</string>
+    <string name="sort_dialog_title">Sort Videos</string>
+    <string name="channel_filter_label">Channel</string>
+    <string name="country_filter_label">Country</string>
+    <string name="tags_label">Tags</string>
+    <string name="recording_date_label">Recording Date</string>
+    <string name="location_label">Location</string>
+    <string name="publication_date_label">Published</string>
+    <string name="map_no_locations">No videos with locations are available yet.</string>
 </resources>

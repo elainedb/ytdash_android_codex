@@ -8,6 +8,10 @@ object StringHelper {
     }
 
     fun wordCount(text: String): Int {
+        return countWords(text)
+    }
+
+    fun countWords(text: String): Int {
         if (text.isBlank()) return 0
         return text.trim().split("\\s+".toRegex()).size
     }
