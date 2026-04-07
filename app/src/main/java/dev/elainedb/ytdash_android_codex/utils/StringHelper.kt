@@ -12,6 +12,8 @@ object StringHelper {
         return text.trim().split("\\s+".toRegex()).size
     }
 
+    fun countWords(text: String): Int = wordCount(text)
+
     fun reverseWords(text: String): String {
         return text.trim().split("\\s+".toRegex()).reversed().joinToString(" ")
     }

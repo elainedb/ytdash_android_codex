@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">YTDash A Codex</string>
+    <string name="login_title">Login with Google</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="login_error_denied">Access denied. Your email is not authorized.</string>
+    <string name="login_error_generic">Unable to complete sign-in.</string>
+    <string name="logout">Logout</string>
+    <string name="refresh">Refresh</string>
+    <string name="view_map">View Map</string>
+    <string name="filter">Filter</string>
+    <string name="sort">Sort</string>
+    <string name="all_channels">All Channels</string>
+    <string name="all_countries">All Countries</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="map_empty">No videos with recording locations are available.</string>
+    <string name="video_location_unknown">Location unavailable</string>
 </resources>
