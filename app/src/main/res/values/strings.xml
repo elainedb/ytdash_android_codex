@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">YTDash A Codex</string>
+    <string name="title_login">Login with Google</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="logout">Logout</string>
+    <string name="refresh">Refresh</string>
+    <string name="view_map">View Map</string>
+    <string name="filter">Filter</string>
+    <string name="sort">Sort</string>
+    <string name="clear_filters">Clear Filters</string>
+    <string name="title_map">Video Map</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
+    <string name="all_channels">All Channels</string>
+    <string name="all_countries">All Countries</string>
+    <string name="error_access_denied">Access denied. Your email is not authorized.</string>
+    <string name="error_sign_in_failed">Google sign-in failed.</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="showing_count">Showing %1$d of %2$d videos</string>
+    <string name="total_count">Total videos: %1$d</string>
+    <string name="no_videos">No videos found.</string>
+    <string name="no_location_videos">No geolocated videos available.</string>
+    <string name="publication_date">Published %1$s</string>
+    <string name="recording_date">Recorded %1$s</string>
+    <string name="location_format">%1$s, %2$s</string>
+    <string name="location_coordinates">Lat %1$.4f, Lng %2$.4f</string>
+    <string name="filter_channel">Channel</string>
+    <string name="filter_country">Country</string>
+    <string name="sort_newest_publication">Publication Date (Newest First)</string>
+    <string name="sort_oldest_publication">Publication Date (Oldest First)</string>
+    <string name="sort_newest_recording">Recording Date (Newest First)</string>
+    <string name="sort_oldest_recording">Recording Date (Oldest First)</string>
+    <string name="open_in_youtube">Open in YouTube</string>
+    <string name="video_location_unknown">Location unavailable</string>
+    <string name="map_sheet_drag_handle">Video details</string>
 </resources>
