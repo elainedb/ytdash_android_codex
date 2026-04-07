@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">YTDash A Codex</string>
+    <string name="login_title">Login with Google</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="access_denied">Access denied. Your email is not authorized.</string>
+    <string name="published_format">Published %1$s</string>
+    <string name="recorded_format">Recorded %1$s</string>
+    <string name="recording_date_unknown">Recording date unavailable</string>
+    <string name="default_web_client_id">dummy.apps.googleusercontent.com</string>
 </resources>

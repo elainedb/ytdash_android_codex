@@ -1,21 +1,30 @@
+import org.gradle.testing.jacoco.tasks.JacocoReport
+
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.firebase.perf)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
     jacoco
 }
 
 android {
     namespace = "dev.elainedb.ytdash_android_codex"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "dev.elainedb.ytdash_android_codex"
-        minSdk = 24
-        targetSdk = 35
+        minSdk = 29
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -31,16 +40,25 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
     buildFeatures {
         compose = true
     }
+
+    packaging {
+        resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+    }
 }
 
-// Task to generate dummy google-services.json for CI builds
 tasks.register("generateDummyGoogleServices") {
     description = "Generates a dummy google-services.json file for CI builds"
     group = "build setup"
@@ -56,7 +74,6 @@ tasks.register("generateDummyGoogleServices") {
     }
 }
 
-// Ensure dummy google-services.json is generated before build starts
 tasks.named("preBuild") {
     dependsOn("generateDummyGoogleServices")
 }
@@ -70,7 +87,7 @@ tasks.withType<Test> {
 
 tasks.register<JacocoReport>("JacocoDebugCodeCoverage") {
     dependsOn("testDebugUnitTest")
-    group = "Reporting"
+    group = "reporting"
     description = "Generate JaCoCo coverage reports for debug unit tests"
 
     reports {
@@ -81,13 +98,16 @@ tasks.register<JacocoReport>("JacocoDebugCodeCoverage") {
     val debugTree = fileTree("${layout.buildDirectory.get()}/tmp/kotlin-classes/debug") {
         exclude(
             "**/R.class",
-            "**/R\$*.class",
+            "**/R$*.class",
             "**/BuildConfig.*",
             "**/Manifest*.*",
             "**/*Test*.*",
             "**/ComposableSingletons*",
             "**/*_Factory*",
+            "**/*_HiltModules*",
             "**/*_MembersInjector*",
+            "**/dagger/hilt/internal/**",
+            "**/hilt_aggregated_deps/**",
             "**/ui/theme/**"
         )
     }
@@ -102,19 +122,46 @@ tasks.register<JacocoReport>("JacocoDebugCodeCoverage") {
 }
 
 dependencies {
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
+    implementation(libs.coil.compose)
+    implementation(libs.coil)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.perf.ktx)
+    implementation(libs.google.play.services.auth)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.material)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.osmdroid.android)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx.serialization)
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+
+    ksp(libs.hilt.android.compiler)
+    ksp(libs.room.compiler)
+
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-    debugImplementation(libs.androidx.compose.ui.tooling)
+
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }
